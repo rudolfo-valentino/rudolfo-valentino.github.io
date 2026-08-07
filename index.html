@@ -264,6 +264,8 @@ const UI = {
   }
 };
 
+// slugs that have an English-translated PDF in books/en/
+const EN_READY = new Set(['protocol-lambda']);
 const SERIES = {ru:'СИГНАЛ В УРАНЕ', en:'SIGNAL IN URANUS'};
 const AUTHOR = {ru:'РУДОЛФО ВАЛЕНТИНО', en:'RUDOLFO VALENTINO'};
 
@@ -352,7 +354,7 @@ function render(lang){
           <p class="book-number">${u.book} ${b.n}</p>
           <h3 class="book-title">${b[lang].title}</h3>
           <p class="book-desc">${b[lang].desc}</p>
-          <a class="book-dl" href="books/${b.slug}.pdf" download>⬇ ${u.download}</a>
+          <a class="book-dl" href="${(lang==='en'&&EN_READY.has(b.slug))?'books/en/'+b.slug+'.pdf':'books/'+b.slug+'.pdf'}" download>⬇ ${u.download}${(lang==='en'&&!EN_READY.has(b.slug))?' (RU)':''}</a>
         </div>`).join('')}</div></div>`;
   });
   el('trilogies').innerHTML=html;
