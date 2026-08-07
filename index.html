@@ -139,8 +139,8 @@
 <canvas id="stars-canvas"></canvas>
 
 <div class="lang-toggle">
-  <button id="btn-ru" class="active" onclick="setLang('ru')">RU</button>
-  <button id="btn-en" onclick="setLang('en')">EN</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ru" onclick="setLang('ru')">RU</button>
 </div>
 
 <div class="hero">
@@ -372,7 +372,7 @@ function render(lang){
   el('btn-en').classList.toggle('active',lang==='en');
 }
 function setLang(l){localStorage.setItem('lang',l);render(l);}
-render(localStorage.getItem('lang')||'ru');
+render(localStorage.getItem('lang')||'en');
 
 /* ---------- STARFIELD ---------- */
 const canvas=document.getElementById('stars-canvas'),ctx=canvas.getContext('2d');let W,H,sfield=[];
