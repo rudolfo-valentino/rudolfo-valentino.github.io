@@ -371,8 +371,8 @@ function render(lang){
   el('btn-ru').classList.toggle('active',lang==='ru');
   el('btn-en').classList.toggle('active',lang==='en');
 }
-function setLang(l){localStorage.setItem('lang',l);render(l);}
-render(localStorage.getItem('lang')||'en');
+function setLang(l){localStorage.setItem('lang_v2',l);render(l);}
+render(localStorage.getItem('lang_v2')||'en');
 
 /* ---------- STARFIELD ---------- */
 const canvas=document.getElementById('stars-canvas'),ctx=canvas.getContext('2d');let W,H,sfield=[];
